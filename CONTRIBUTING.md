@@ -46,6 +46,16 @@ New to the project? Look for issues labeled [`good first issue`](https://github.
 
 Browse [open issues](https://github.com/scalefirstai/DevPulse/issues) and pick one that interests you. Leave a comment to let others know you're working on it.
 
+### Shape the Methodology
+
+DevPulse's five KPIs involve real measurement trade-offs — what to count, where to draw thresholds, how to handle edge cases. We've published these as [RFCs](rfcs/README.md) (living methodology proposals) because we want community input on the hard questions.
+
+You don't need to write code to make a meaningful contribution. If you've measured engineering metrics at your organization and have opinions about cycle time start points, defect severity weighting, or rework window sizes, your experience is exactly what we need.
+
+- **Read an RFC** — each one has open questions that need real-world perspectives
+- **Comment via PR** — suggest changes directly to the RFC documents
+- **Start a Discussion** — open a thread in [GitHub Discussions](https://github.com/scalefirstai/DevPulse/discussions) tagged `methodology`
+
 ## Development Setup
 
 ### Prerequisites

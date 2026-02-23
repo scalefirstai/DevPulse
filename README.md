@@ -205,6 +205,7 @@ Looking for a place to start? Check out issues labeled [`good first issue`](http
 
 - [GitHub Discussions](https://github.com/scalefirstai/DevPulse/discussions) — Questions, ideas, show & tell
 - [Issue Tracker](https://github.com/scalefirstai/DevPulse/issues) — Bug reports and feature requests
+- [KPI Methodology RFCs](rfcs/README.md) — How we measure matters. Help shape the methodology behind each KPI.
 - [Code of Conduct](CODE_OF_CONDUCT.md) — Our community standards
 
 ### Star History
