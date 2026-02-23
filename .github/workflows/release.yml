@@ -33,7 +33,7 @@ jobs:
         run: echo "tag=$(date +%Y%m%d)-$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
 
       - name: Build and push server
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           file: Dockerfile.server
@@ -45,7 +45,7 @@ jobs:
           cache-to: type=gha,mode=max
 
       - name: Build and push dashboard
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           file: Dockerfile.dashboard
