@@ -1,0 +1,43 @@
+# DevPulse Configuration
+# Copy to devpulse.config.yaml and fill in your values.
+
+org:
+  name: "My Organization"
+
+teams:
+  - name: Platform
+    slug: platform
+  - name: Payments
+    slug: payments
+
+connectors:
+  github:
+    token: ${GITHUB_TOKEN}
+    repos:
+      - org/repo-1
+      - org/repo-2
+
+  jira:
+    host: https://your-org.atlassian.net
+    email: ${JIRA_EMAIL}
+    token: ${JIRA_TOKEN}
+    projects:
+      - PROJ1
+      - PROJ2
+
+  pagerduty:
+    token: ${PAGERDUTY_TOKEN}
+    service_ids:
+      - SERVICE1
+
+  # opsgenie:
+  #   token: ${OPSGENIE_TOKEN}
+  #   teams:
+  #     - team-1
+
+collection:
+  schedule: "0 */6 * * *"  # Every 6 hours
+
+dashboard:
+  refresh_interval: 300  # seconds
+  theme: dark

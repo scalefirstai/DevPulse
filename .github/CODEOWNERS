@@ -1,0 +1,9 @@
+# Default owners
+* @devpulse/maintainers
+
+# Package-specific owners
+packages/core/ @devpulse/core-team
+packages/connectors/ @devpulse/integrations-team
+packages/server/ @devpulse/backend-team
+packages/dashboard/ @devpulse/frontend-team
+deploy/ @devpulse/platform-team

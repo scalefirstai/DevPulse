@@ -1,0 +1,46 @@
+FROM node:20-alpine AS builder
+
+RUN corepack enable
+WORKDIR /app
+
+COPY pnpm-workspace.yaml pnpm-lock.yaml* package.json ./
+COPY packages/core/package.json packages/core/
+COPY packages/connectors/package.json packages/connectors/
+COPY packages/server/package.json packages/server/
+
+RUN pnpm install --frozen-lockfile || pnpm install
+
+COPY tsconfig.json ./
+COPY packages/core/ packages/core/
+COPY packages/connectors/ packages/connectors/
+COPY packages/server/ packages/server/
+
+RUN pnpm --filter @devpulse/core build && \
+    pnpm --filter @devpulse/connectors build && \
+    pnpm --filter @devpulse/server build
+
+FROM node:20-alpine AS runner
+
+RUN corepack enable
+WORKDIR /app
+
+ENV NODE_ENV=production
+
+COPY --from=builder /app/pnpm-workspace.yaml /app/package.json ./
+COPY --from=builder /app/packages/core/package.json packages/core/
+COPY --from=builder /app/packages/core/dist packages/core/dist/
+COPY --from=builder /app/packages/connectors/package.json packages/connectors/
+COPY --from=builder /app/packages/connectors/dist packages/connectors/dist/
+COPY --from=builder /app/packages/server/package.json packages/server/
+COPY --from=builder /app/packages/server/dist packages/server/dist/
+COPY --from=builder /app/packages/server/src/db packages/server/src/db/
+COPY --from=builder /app/node_modules ./node_modules/
+COPY --from=builder /app/packages/core/node_modules packages/core/node_modules/
+COPY --from=builder /app/packages/server/node_modules packages/server/node_modules/
+
+EXPOSE 4000
+
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
+  CMD wget --no-verbose --tries=1 --spider http://localhost:4000/api/ping || exit 1
+
+CMD ["node", "packages/server/dist/index.js"]

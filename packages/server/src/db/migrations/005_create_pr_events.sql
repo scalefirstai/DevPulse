@@ -1,0 +1,20 @@
+CREATE TABLE pr_events (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    team_id UUID REFERENCES teams(id),
+    external_id VARCHAR(100) NOT NULL,
+    title TEXT,
+    author VARCHAR(100),
+    created_at TIMESTAMPTZ NOT NULL,
+    first_commit_at TIMESTAMPTZ,
+    first_review_at TIMESTAMPTZ,
+    approved_at TIMESTAMPTZ,
+    merged_at TIMESTAMPTZ,
+    deployed_at TIMESTAMPTZ,
+    is_rework BOOLEAN DEFAULT FALSE,
+    rework_reason VARCHAR(50),
+    files_changed INTEGER,
+    additions INTEGER,
+    deletions INTEGER,
+    labels JSONB DEFAULT '[]',
+    metadata JSONB DEFAULT '{}'
+);
