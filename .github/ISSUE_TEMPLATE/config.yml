@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Ask a Question
+    url: https://github.com/scalefirstai/DevPulse/discussions/new?category=q-a
+    about: Use GitHub Discussions for questions, help, and general discussion. Issues are for bug reports and feature requests.

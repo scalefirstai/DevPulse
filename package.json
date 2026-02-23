@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "description": "Engineering health metrics that tell the truth",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "scripts": {
     "build": "pnpm -r run build",
     "test": "pnpm -r run test",
