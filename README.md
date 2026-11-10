@@ -27,8 +27,8 @@
 </p>
 
 <p align="center">
-  <a href="#-quick-start">Quick Start</a> &bull;
-  <a href="#-kpis">KPIs</a> &bull;
+  <a href="#quick-start">Quick Start</a> &bull;
+  <a href="#kpis">KPIs</a> &bull;
   <a href="docs/getting-started.md">Docs</a> &bull;
   <a href="docs/api-reference.md">API</a> &bull;
   <a href="CONTRIBUTING.md">Contributing</a> &bull;
